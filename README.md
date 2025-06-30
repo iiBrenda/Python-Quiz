@@ -24,7 +24,7 @@ Este projeto tem como objetivo:
 - Python 3.x
 ## 📷 Diagrama de Classes
 
-![Diagrama de Classes](Diagrama_de_Classes.png)
+![Diagrama de Classes](Diagrama_de_classes.png)
 
 
 ## ▶️ Como Executar
