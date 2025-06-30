@@ -22,6 +22,10 @@ Este projeto tem como objetivo:
 ## 🛠️ Tecnologias Utilizadas
 
 - Python 3.x
+## 📷 Diagrama de Classes
+
+![Diagrama de Classes](Diagrama_de_Classes.png)
+
 
 ## ▶️ Como Executar
 
