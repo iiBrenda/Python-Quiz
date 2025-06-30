@@ -1,0 +1,877 @@
+/* VARIÁVEIS DE CORES E ESTILOS */
+:root {
+    --python-blue: #3776AB;
+    --python-yellow: #FFD43B;
+    --python-dark: #1E2B38;
+    --python-light: #F8F9FA;
+    --correct-green: #2ECC71;
+    --incorrect-red: #E74C3C;
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --neon-blue: #00D1FF;
+}
+
+/* ESTILOS GERAIS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.home,
+body.inicio,
+body.index {
+    background: #0f2027 !important; /* ou qualquer tom de azul escuro que preferir */
+}
+
+/* Efeito de partículas */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    z-index: 1;
+}
+
+/* Header estilizado */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(55,118,171,0.1) 0%, rgba(0,0,0,0) 70%);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--python-yellow) 0%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(0, 209, 255, 0.3);
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card do Quiz - Efeito Glassmorfismo */
+.quiz-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--python-blue) 0%, var(--python-yellow) 100%);
+}
+
+/* Progresso - Barra animada (AJUSTADA) */
+.progress-container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--python-blue) 0%, var(--python-yellow) 100%);
+    border-radius: 10px;
+    transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+                rgba(255,255,255,0) 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                rgba(255,255,255,0) 100%);
+    animation: shine 2s infinite;
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--python-light);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-text i {
+    margin-right: 10px;
+    color: var(--python-yellow);
+}
+
+/* Pergunta - Estilo de código */
+.question {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0;
+    color: white;
+    background: rgba(30, 43, 56, 0.7);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--python-blue);
+    font-family: 'Fira Code', monospace;
+    position: relative;
+}
+
+.question::before {
+    content: '>>>';
+    position: absolute;
+    left: -40px;
+    top: 1.5rem;
+    color: var(--python-yellow);
+    font-family: 'Fira Code', monospace;
+}
+
+/* Opções - Estilo moderno */
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.option {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.option:hover {
+    background: rgba(55, 118, 171, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.option label::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--python-blue);
+    border-radius: 6px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.option input:checked + label::before {
+    background-color: var(--python-blue);
+    border-color: var(--python-blue);
+    box-shadow: 0 0 0 3px rgba(55, 118, 171, 0.3);
+}
+
+.option input:checked + label::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 12px;
+}
+
+/* Botões - Efeito Neon */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--python-blue) 0%, #2a5f8a 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(55, 118, 171, 0.4);
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(55, 118, 171, 0.6);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--python-yellow);
+    border: 2px solid var(--python-yellow);
+    box-shadow: 0 0 10px rgba(255, 212, 59, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 212, 59, 0.1);
+    box-shadow: 0 0 20px rgba(255, 212, 59, 0.5);
+}
+
+/* Feedback - Animação sofisticada */
+.feedback {
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    font-weight: 600;
+    text-align: center;
+    animation: fadeInUp 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.correct {
+    background: rgba(46, 204, 113, 0.15);
+    color: var(--correct-green);
+    border-left: 4px solid var(--correct-green);
+}
+
+.incorrect {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--incorrect-red);
+    border-left: 4px solid var(--incorrect-red);
+}
+
+.feedback i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Resultados - Tela de conclusão */
+.results {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease;
+}
+
+.results h2 {
+    color: var(--python-yellow);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--python-yellow) 0%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin: 1.5rem 0;
+}
+
+.percentage {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--python-yellow) 0%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 1rem 0;
+    text-shadow: 0 0 20px rgba(0, 209, 255, 0.3);
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 10;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 565.48;
+    stroke-dashoffset: 565.48;
+    animation: circle-fill 1.5s ease-in-out forwards;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.8s ease;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--python-light);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--python-blue);
+    box-shadow: 0 0 0 3px rgba(55, 118, 171, 0.3);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes circle-fill {
+    to { stroke-dashoffset: var(--offset); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    header {
+        padding: 2rem 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .quiz-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .login-container {
+        padding: 2rem 1.5rem;
+    }
+}
+/* admin.css */
+.admin-only { display: none; }
+
+.admin-badge {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+}
+
+.admin-badge .logoutBtn {
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 10px;
+    padding: 3px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #6e48aa, #9d50bb);
+    color: white;
+    border: none;
+}
+    .admin-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .admin-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .tab-btn.active {
+        border-bottom: 3px solid #6e48aa;
+        font-weight: bold;
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .admin-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .form-group label {
+        font-weight: bold;
+    }
+    
+    .form-group textarea, 
+    .form-group input {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    .questions-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .table-header, .table-row {
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .col-number {
+        width: 50px;
+    }
+    
+    .col-question {
+        flex: 1;
+    }
+    
+    .col-actions {
+        width: 150px;
+        display: flex;
+        gap: 5px;
+    }
+    
+    .question-meta {
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: 5px;
+    }
+    
+    .btn-small {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .search-bar {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    
+    #searchQuestion {
+        flex: 1;
+        padding: 8px;
+    }
+;
+/* ADICIONE ESTES ESTILOS AO SEU CSS EXISTENTE */
+
+/* Efeito de fundo animado para o quiz */
+body {
+    background: linear-gradient(-45deg, #0F2027, #203A43, #2C5364, #3a7bd5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container principal do quiz com efeito de vidro */
+.quiz-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho animado */
+.quiz-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 6s infinite;
+}
+
+@keyframes shine {
+    0% { transform: rotate(30deg) translate(-30%, -30%); }
+    100% { transform: rotate(30deg) translate(30%, 30%); }
+}
+
+/* Ajustes para manter a legibilidade */
+.question, .options, .feedback {
+    position: relative;
+    z-index: 2;
+}
+
+/* Efeito especial para as opções */
+.option {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background: rgba(55, 118, 171, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões com efeito de vidro */
+.btn {
+    background: rgba(55, 118, 171, 0.7);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(55, 118, 171, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Painel de admin com transparência */
+.admin-panel {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* Adicione ao seu CSS existente */
+body {
+    background: transparent !important;
+    overflow-x: hidden;
+}
+
+.quiz-container {
+    background: rgba(30, 43, 56, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(55, 118, 171, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn:hover::after {
+    transform: translateX(100%);
+}
+body {
+    background-color: #0f2027; /* Cor azul escuro do gradiente */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.admin-login {
+    background: rgba(15, 32, 39, 0.9); 
+}
+.login-container {
+    background: rgba(15, 32, 39, 0.8); /* Cor de fundo escura com transparência */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    margin: 2rem auto;
+    border: 1px solid rgba(55, 118, 171, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.login-container h2 {
+    color: #FFD43B; /* Amarelo Python */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.login-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(55, 118, 171, 0.8);
+    background: rgba(44, 83, 100, 0.3);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #FFD43B;
+    box-shadow: 0 0 0 2px rgba(255, 212, 59, 0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(to right, #3776AB, #2c5364);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    background: linear-gradient(to right, #2c5364, #3776AB);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

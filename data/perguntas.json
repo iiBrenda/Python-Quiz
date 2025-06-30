@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "question": "Qual é a sintaxe correta para criar uma função em Python?",
+        "options": ["function minha_funcao():", "def minha_funcao():", "create minha_funcao():","func minha_funcao():"],
+        "answer": "def minha_funcao():",
+        "hint": "Python usa a palavra-chave 'def' para funções"
+    },
+    {
+        "id": 2,
+        "question": "Como comentar uma linha em Python?",
+        "options": [
+            "// Comentário",
+            "# Comentário",
+            "/* Comentário */",
+            "-- Comentário"
+        ],
+        "answer": "# Comentário",
+        "hint": "Python usa o símbolo # para comentários de linha única"
+    },
+    {
+        "id": 3,
+        "question": "Qual método retorna o número de itens em uma lista?",
+        "options": [
+            ".count()",
+            ".size()",
+            ".length()",
+            ".len()"
+        ],
+        "answer": ".count()",
+        "hint": "O método .count() retorna o número de elementos específicos na lista"
+    },
+    {
+        "id": 4,
+        "question": "Como criar uma variável x com valor 5?",
+        "options": [
+            "x = 5",
+            "var x = 5",
+            "let x = 5",
+            "x == 5"
+        ],
+        "answer": "x = 5",
+        "hint": "Python usa atribuição simples com ="
+    },
+    {
+        "id": 5,
+        "question": "Qual destes NÃO é um tipo de dado básico em Python?",
+        "options": [
+            "int",
+            "str",
+            "real",
+            "tuple"
+        ],
+        "answer": "real",
+        "hint": "Python tem 'float' para números reais, não 'real'"
+    },
+    {
+        "id": 6,
+        "question": "Como se cria uma lista em Python?",
+        "options": [
+            "lista = []",
+            "lista = lista",
+            "lista = {}",
+            "Ambos A e B estão corretos"
+        ],
+        "answer": "lista = []",
+        "hint": "Listas são criadas com colchetes []"
+    },
+    {
+        "id": 7,
+        "question": "O que é uma lista mutável?",
+        "options": [
+            "Uma lista que pode ser editada",
+            "Uma lista que não pode ser editada",
+            "Uma lista que não pode ser criada",
+            "Uma lista pequena"
+        ],
+        "answer": "Uma lista que pode ser editada",
+        "hint": "Mutável significa que pode ser alterada após criação"
+    },
+    {
+        "id": 8,
+        "question": "Como imprimir 'Olá, mundo!' em Python?",
+        "options": [
+            "console.log('Olá, mundo!')",
+            "print('Olá, mundo!')",
+            "echo 'Olá, mundo!'",
+            "printf('Olá, mundo!')"
+        ],
+        "answer": "print('Olá, mundo!')",
+        "hint": "Python usa a função print() para exibir mensagens"
+    }
+]

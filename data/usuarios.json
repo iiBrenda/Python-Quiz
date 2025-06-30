@@ -1,0 +1,13 @@
+[
+  {
+    "tipo": "admin",
+    "nome": "Administrador",
+    "email": "admin@quiz.com"
+  },
+  {
+    "tipo": "jogador",
+    "nome": "Brenda",
+    "email": "brenda@email.com",
+    "pontuacao": 150
+  }
+]

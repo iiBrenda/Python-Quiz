@@ -1,0 +1,41 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+<div class="admin-panel">
+    <h2><i class="fas fa-edit"></i> Editar Perguntas</h2>
+    
+    <div class="question-form">
+        <form id="addQuestionForm">
+            <div class="form-row">
+                <label>Texto da Pergunta:</label>
+                <textarea name="texto" required></textarea>
+            </div>
+            
+            <div class="form-row">
+                <label>Opções (separadas por vírgula):</label>
+                <input type="text" name="opcoes" placeholder="Opção 1, Opção 2, Opção 3, Opção 4" required>
+            </div>
+            
+            <div class="form-row">
+                <label>Resposta Correta:</label>
+                <input type="text" name="resposta_correta" required>
+            </div>
+            
+            <div class="form-row">
+                <label>Dica:</label>
+                <input type="text" name="dica">
+            </div>
+            
+            <button type="submit" class="btn">
+                <i class="fas fa-save"></i> Salvar Pergunta
+            </button>
+        </form>
+    </div>
+    
+    <div id="questionsList" class="questions-list">
+        <!-- Lista de perguntas será carregada aqui -->
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

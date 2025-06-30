@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Efeito de partículas -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <!-- Página do Quiz -->
+        <div id="quizPage">
+            <header>
+                <h1>Python Quiz Premium</h1>
+                <p class="subtitle">Desafie seus conhecimentos em Python</p>
+            </header>
+            
+            <div class="quiz-card">
+                <div class="progress-container">
+                    <div class="progress-text">
+                        <i class="fas fa-spinner"></i> <span id="progressText">Pergunta 1 de 8</span>
+                    </div>
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div id="quizContent">
+                    <!-- O conteúdo do quiz será inserido aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gradiente para o círculo de progresso -->
+    <svg width="0" height="0">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3776AB" />
+                <stop offset="100%" stop-color="#FFD43B" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/static/js/quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <!-- Adicione antes do fechamento do body -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+        console.log('particles.js loaded');
+    });
+</script>
+</body>
+</html>

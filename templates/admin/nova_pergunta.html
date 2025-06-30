@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Nova Pergunta - Quiz Python{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Adicionar Nova Pergunta</h2>
+    
+    <form method="POST" action="{{ url_for('nova_pergunta') }}">
+        <div class="form-group">
+            <label for="enunciado">Enunciado:</label>
+            <textarea id="enunciado" name="enunciado" required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="opcao_a">Opção A:</label>
+            <input type="text" id="opcao_a" name="opcao_a" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="opcao_b">Opção B:</label>
+            <input type="text" id="opcao_b" name="opcao_b" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="opcao_c">Opção C:</label>
+            <input type="text" id="opcao_c" name="opcao_c" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="opcao_d">Opção D:</label>
+            <input type="text" id="opcao_d" name="opcao_d" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="resposta_correta">Resposta Correta (A/B/C/D):</label>
+            <input type="text" id="resposta_correta" name="resposta_correta" required>
+        </div>
+        
+        <button type="submit" class="btn">Salvar Pergunta</button>
+    </form>
+</div>
+{% endblock %}

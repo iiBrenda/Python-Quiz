@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Perguntas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Quiz</h1>
+        <button id="logoutBtn">Sair</button>
+    </header>
+
+    <div class="crud-container">
+        <!-- Formulário para adicionar/editar -->
+        <form id="questionForm">
+            <h2 id="formTitle">Adicionar Pergunta</h2>
+            <textarea id="questionText" placeholder="Digite a pergunta..." required></textarea>
+            
+            <div id="optionsContainer">
+                <input type="text" class="option-input" placeholder="Opção 1" required>
+                <input type="text" class="option-input" placeholder="Opção 2" required>
+            </div>
+            <button type="button" id="addOptionBtn">+ Adicionar Opção</button>
+            
+            <select id="correctAnswer" required>
+                <option value="">Selecione a resposta correta</option>
+            </select>
+            
+            <button type="submit" id="saveBtn">Salvar</button>
+            <button type="button" id="cancelEditBtn" style="display:none;">Cancelar</button>
+        </form>
+
+        <!-- Lista de perguntas -->
+        <div class="questions-list">
+            <h2>Perguntas Cadastradas</h2>
+            <div id="questionsTable"></div>
+        </div>
+    </div>
+
+    <script src="../js/quiz-data.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
