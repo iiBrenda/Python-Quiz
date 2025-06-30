@@ -30,6 +30,11 @@ Este projeto tem como objetivo:
    git clone https://github.com/iiBrenda/Python-Quiz.git
 2.	Navegue até a pasta do projeto
    cd caminho.python.quiz
+3. Instale as dependências se forem necessárias:
+   • pip install flask-sqlalchemy
+   • pip install sqlalchemy
+   • pip install flask
+     
 3.Execute:
     py app.py ou python app.py
 
