@@ -5,7 +5,6 @@ import os
 import json
 from controllers.db_manager import DBManager
 
-# ⚠️ IMPORTANTE: Defina o app antes de usar @app.route
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = 'sua_chave_secreta_super_segura'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz.db'
@@ -13,24 +12,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Inicializa DBManager para perguntas do JSON
 db_perguntas = DBManager("data/perguntas.json")
 
-# 🔵 API que lê o arquivo perguntas.json
 @app.route('/api/perguntas')
 def get_perguntas():
     try:
-        # Caminho absoluto para evitar erros
         caminho = os.path.join(app.root_path, 'data', 'perguntas.json')
         
-        # Verifica se o arquivo existe
         if not os.path.exists(caminho):
             return jsonify({"error": "Arquivo de perguntas não encontrado"}), 404
             
         with open(caminho, 'r', encoding='utf-8') as f:
             perguntas = json.load(f)
             
-            # Validação básica do formato
             if not isinstance(perguntas, list):
                 return jsonify({"error": "Formato inválido: deve ser uma lista"}), 500
                 
@@ -41,7 +35,6 @@ def get_perguntas():
     except Exception as e:
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
 
-# MODELOS
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
@@ -56,7 +49,7 @@ class Pergunta(db.Model):
     opcao_d = db.Column(db.String(200), nullable=False)
     resposta_correta = db.Column(db.String(1), nullable=False)
 
-# Criar banco de dados e admin se não existir
+# Criar banco de dados
 with app.app_context():
     db.create_all()
     if not User.query.filter_by(username='admin').first():
