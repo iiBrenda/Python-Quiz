@@ -215,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(adminBtn);
     }
 
-    // Substitua a função showAdminLogin por esta versão corrigida
 function showAdminLogin() {
     quizContent.innerHTML = `
         <div class="admin-login">
@@ -245,22 +244,19 @@ function showAdminLogin() {
             sessionStorage.setItem('username', 'admin');
             isAdmin = true;
             updateAdminUI();
-            // Em vez de loadQuestions(), vamos direto para o painel admin
-            showResults(); // Mostra a tela de resultados que tem o botão do painel admin
-            document.getElementById('adminBtn').click(); // Abre automaticamente o painel admin
+            showResults(); 
+            document.getElementById('adminBtn').click(); 
         } else {
             alert('Credenciais inválidas!');
         }
     });
 }
 
-// E adicione esta função para forçar a abertura do painel admin quando já estiver logado
 function checkAdminStatus() {
     const loggedUser = sessionStorage.getItem('username');
     isAdmin = (loggedUser === 'admin');
     updateAdminUI();
     
-    // Se já estiver logado como admin, abre automaticamente o painel
     if (isAdmin && window.location.hash === '#admin') {
         setTimeout(() => {
             if (document.getElementById('adminBtn')) {
@@ -310,7 +306,6 @@ function loadQuestions() {
             return response.json();
         })
         .then(data => {
-            // Debug: verifique os dados no console
             console.log("Dados recebidos:", data); 
             
             if (!Array.isArray(data)) {
@@ -1211,7 +1206,6 @@ function loadQuestions() {
     document.head.appendChild(style);
 });
 
-// Inicialize o fundo quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     new PythonBackground();
 });
