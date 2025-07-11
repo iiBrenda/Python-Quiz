@@ -1,4 +1,3 @@
-/* VARIÁVEIS DE CORES E ESTILOS */
 :root {
     --python-blue: #3776AB;
     --python-yellow: #FFD43B;
@@ -21,7 +20,7 @@
 body.home,
 body.inicio,
 body.index {
-    background: #0f2027 !important; /* ou qualquer tom de azul escuro que preferir */
+    background: #0f2027 !important; 
 }
 
 /* Efeito de partículas */
@@ -671,9 +670,7 @@ h1 {
         padding: 8px;
     }
 ;
-/* ADICIONE ESTES ESTILOS AO SEU CSS EXISTENTE */
 
-/* Efeito de fundo animado para o quiz */
 body {
     background: linear-gradient(-45deg, #0F2027, #203A43, #2C5364, #3a7bd5);
     background-size: 400% 400%;
@@ -687,7 +684,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Container principal do quiz com efeito de vidro */
 .quiz-container {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -765,7 +761,6 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* Adicione ao seu CSS existente */
 body {
     background: transparent !important;
     overflow-x: hidden;
